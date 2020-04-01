@@ -1,0 +1,6 @@
+futureTask的设计模式手动实现案例
+
+Product：产品类
+Future：订单类--就相当与FutureTask的future任务，通过这个future去取到预先执行的任务的结果
+ProductFactory：订单类的工厂类，对于订单不直接new而是通过FutureTask来获取
+Main：执行入口
