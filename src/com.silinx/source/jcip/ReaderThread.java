@@ -8,9 +8,10 @@ import java.net.Socket;
  * ReaderThread
  * <p/>
  * Encapsulating nonstandard cancellation in a Thread by overriding interrupt
- *
+ * 通过改写interrupt方法将非标准的取消操作封装再Thread中
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "7.1.6",page = "122")
 public class ReaderThread extends Thread {
     private static final int BUFSZ = 512;
     private final Socket socket;

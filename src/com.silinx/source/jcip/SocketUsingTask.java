@@ -11,10 +11,11 @@ import java.util.concurrent.*;
  * SocketUsingTask
  * <p/>
  * Encapsulating nonstandard cancellation in a task with newTaskFor
- *
+ * 实现了CancellableTask ，并定义了Future.cancel来关闭套接字和调用super.cancel。以提高了任务对取消的响应性，不仅能调用可中断
+ * 方法的同时确保响应取消操作。而且还能调用可阻塞的套接字IO方法
  * @author Brian Goetz and Tim Peierls
  */
-
+@JCIPCodeInfo(chapter = "7.1.7",page = "123")
 public abstract class SocketUsingTask <T> implements CancellableTask<T> {
     @GuardedBy("this") private Socket socket;
 

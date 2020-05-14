@@ -8,6 +8,7 @@ package com.silinx.source.jcip;
 public class LaunderThrowable {
 
     /**
+     * 将future get()时抛出的异常作处理.因为future会将所有的异常都封装成ExecutionExceptio
      * Coerce an unchecked Throwable to a RuntimeException
      * <p/>
      * If the Throwable is an Error, throw it; if it is a

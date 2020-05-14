@@ -10,13 +10,16 @@ import java.util.concurrent.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "8.5",page = "150")
 public abstract class TransformingSequential {
 
+    //串行循环
     void processSequentially( List<Element> elements) {
         for (Element e : elements)
             process(e);
     }
 
+    //将串行循环改为并行循环
     void processInParallel( Executor exec, List<Element> elements) {
         for (final Element e : elements)
             exec.execute(new Runnable() {

@@ -9,6 +9,7 @@ import java.util.concurrent.atomic.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "8.5",page = "152")
 public class PuzzleSolver <P,M> extends ConcurrentPuzzleSolver<P, M> {
     PuzzleSolver(Puzzle<P, M> puzzle) {
         super(puzzle);
@@ -26,6 +27,7 @@ public class PuzzleSolver <P,M> extends ConcurrentPuzzleSolver<P, M> {
             taskCount.incrementAndGet();
         }
 
+        //这里如果没有找到结果始终ValueLatch始终为1而不退出，导致调用get时一直阻塞，所以这里做了这个优化
         public void run() {
             try {
                 super.run();

@@ -1,8 +1,10 @@
 package com.silinx.source.jcip;
 
-import java.util.*;
+import net.jcip.annotations.GuardedBy;
+import net.jcip.annotations.ThreadSafe;
 
-import net.jcip.annotations.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * ServerStatusBeforeSplit
@@ -11,6 +13,7 @@ import net.jcip.annotations.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "11.4.2", page = "195")
 @ThreadSafe
 public class ServerStatusBeforeSplit {
     @GuardedBy("this") public final Set<String> users;

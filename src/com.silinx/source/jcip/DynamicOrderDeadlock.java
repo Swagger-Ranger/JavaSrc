@@ -9,6 +9,7 @@ import java.util.concurrent.atomic.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "10.1.2", page = "171")
 public class DynamicOrderDeadlock {
     // Warning: deadlock-prone!
     public static void transferMoney(Account fromAccount,

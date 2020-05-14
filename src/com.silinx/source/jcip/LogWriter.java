@@ -8,9 +8,10 @@ import java.util.concurrent.*;
  * LogWriter
  * <p/>
  * Producer-consumer logging service with no shutdown support
- *
+ * 不支持关闭的生产者消费者模型
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "7.2.1",page = "125")
 public class LogWriter {
     private final BlockingQueue<String> queue;
     private final LoggerThread logger;

@@ -11,6 +11,7 @@ import java.util.logging.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "8.4",page = "149")
 public class TimingThreadPool extends ThreadPoolExecutor {
 
     public TimingThreadPool() {

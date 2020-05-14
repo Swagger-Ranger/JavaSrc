@@ -7,6 +7,7 @@ package com.silinx.source.jcip;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "10.1.2", page = "173")
 public class InduceLockOrder {
     private static final Object tieLock = new Object();
 

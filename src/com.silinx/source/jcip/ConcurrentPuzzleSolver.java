@@ -10,6 +10,7 @@ import java.util.concurrent.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "8.5",page = "153")
 public class ConcurrentPuzzleSolver <P, M> {
     private final Puzzle<P, M> puzzle;
     private final ExecutorService exec;

@@ -14,7 +14,19 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class OutOfTime {
     public static void main( String[] args) throws Exception {
         Timer timer = new Timer();
-        timer.schedule(new ThrowTask(), 1);
+
+
+        try {
+
+            System.out.println("000000000000000");
+            timer.schedule(new ThrowTask(), 1);
+        }finally {
+            System.out.println("-------------");
+            System.out.println(Thread.currentThread().getState());
+
+        }
+
+
         SECONDS.sleep(1);
         timer.schedule(new ThrowTask(), 1);
         SECONDS.sleep(5);
@@ -22,6 +34,7 @@ public class OutOfTime {
 
     static class ThrowTask extends TimerTask {
         public void run() {
+            System.out.println("run-------");
             throw new RuntimeException();
         }
     }

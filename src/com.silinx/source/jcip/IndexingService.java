@@ -10,7 +10,10 @@ import java.util.concurrent.*;
  * Shutdown with poison pill
  *
  * @author Brian Goetz and Tim Peierls
+ * 使用毒丸对象来停止队列，即当得到某个对象就立即停止，毒丸对象之前的都会被处理之后的就不再提交任务
+ * 这种模型只有在消费者和生产者都数量已知的情况下才能使用，因为消费者和生产者都要有对应数量的毒丸，来停止工作
  */
+@JCIPCodeInfo(chapter = "7.2.3", page = "128")
 public class IndexingService {
     private static final int CAPACITY = 1000;
     private static final File POISON = new File("");
@@ -20,17 +23,13 @@ public class IndexingService {
     private final FileFilter fileFilter;
     private final File root;
 
-    public IndexingService( File root, final FileFilter fileFilter) {
+    public IndexingService( File root, final FileFilter fileFilter ) {
         this.root = root;
         this.queue = new LinkedBlockingQueue<File>(CAPACITY);
-        this.fileFilter = new FileFilter() {
-            public boolean accept( File f) {
-                return f.isDirectory() || fileFilter.accept(f);
-            }
-        };
+        this.fileFilter = f -> f.isDirectory() || fileFilter.accept(f);
     }
 
-    private boolean alreadyIndexed( File f) {
+    private boolean alreadyIndexed( File f ) {
         return false;
     }
 
@@ -50,7 +49,7 @@ public class IndexingService {
             }
         }
 
-        private void crawl( File root) throws InterruptedException {
+        private void crawl( File root ) throws InterruptedException {
             File[] entries = root.listFiles(fileFilter);
             if (entries != null) {
                 for (File entry : entries) {
@@ -77,9 +76,11 @@ public class IndexingService {
             }
         }
 
-        public void indexFile( File file) {
+        public void indexFile( File file ) {
             /*...*/
-        };
+        }
+
+        ;
     }
 
     public void start() {

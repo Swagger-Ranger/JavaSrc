@@ -10,6 +10,7 @@ import java.util.concurrent.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "7.1.1", page = "115")
 public class PrimeProducer extends Thread {
     private final BlockingQueue<BigInteger> queue;
 

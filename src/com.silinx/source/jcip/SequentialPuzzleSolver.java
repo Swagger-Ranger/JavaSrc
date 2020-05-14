@@ -9,7 +9,7 @@ import java.util.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
-
+@JCIPCodeInfo(chapter = "8.5",page = "152")
 public class SequentialPuzzleSolver <P, M> {
     private final Puzzle<P, M> puzzle;
     private final Set<P> seen = new HashSet<P>();

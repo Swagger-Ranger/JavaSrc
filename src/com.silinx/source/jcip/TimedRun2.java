@@ -13,6 +13,7 @@ import static java.util.concurrent.Executors.newScheduledThreadPool;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "7.1.4",page = "119")
 public class TimedRun2 {
     private static final ScheduledExecutorService cancelExec = newScheduledThreadPool(1);
 
@@ -39,12 +40,12 @@ public class TimedRun2 {
         RethrowableTask task = new RethrowableTask();
         final Thread taskThread = new Thread(task);
         taskThread.start();
-        cancelExec.schedule(new Runnable() {
+        cancelExec.schedule(new Runnable() {  //在给定的时间等待后执行任务（这里就是取消）然后返回null
             public void run() {
                 taskThread.interrupt();
             }
         }, timeout, unit);
-        taskThread.join(unit.toMillis(timeout));
+        taskThread.join(unit.toMillis(timeout));//这里有个缺点：线程的退出不知道是中断还是join超时
         task.rethrow();
     }
 }

@@ -6,9 +6,10 @@ import net.jcip.annotations.*;
  * StripedMap
  * <p/>
  * Hash-based map using lock striping
- *
+ * 分段锁，通过将比较大的锁分成多个锁来减少锁的竞争
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "11.4.3", page = "197")
 @ThreadSafe
 public class StripedMap {
     // Synchronization policy: buckets[n] guarded by locks[n%N_LOCKS]

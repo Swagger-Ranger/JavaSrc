@@ -9,6 +9,7 @@ import java.util.Random;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "", page = "")
 public class DemonstrateDeadlock {
     private static final int NUM_THREADS = 20;
     private static final int NUM_ACCOUNTS = 5;

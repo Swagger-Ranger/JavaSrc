@@ -1,5 +1,8 @@
 package com.silinx.source.swaggerranger.JavaCore.Reflection;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*******************************************************************************
  * @Copyright (C), 2018-2019,github:Swagger-Ranger 
  * @FileName: User_Demo
@@ -43,5 +46,24 @@ public class User_Demo {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    public static void main( String[] args ) throws ClassNotFoundException {
+//        User_Demo demo = new User_Demo();
+//        demo.setAge(7);
+//        demo.setName("swagger");
+//
+////        Class clazz = Class.forName(String.valueOf(demo.getClass()));
+//        Class clazz = Class.forName(demo.getClass().getName());
+//
+//        System.out.println(clazz.getClass().getDeclaredFields().length);
+
+        List<String> list = new ArrayList<>();
+        list.add(null);
+        System.out.println(list.size());
+        list.add(null);
+
+        System.out.println(list.size());
+
     }
 }

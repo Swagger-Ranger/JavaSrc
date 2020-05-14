@@ -1,9 +1,11 @@
 package com.silinx.source.jcip;
 
-import java.util.*;
-import java.util.regex.*;
+import net.jcip.annotations.GuardedBy;
+import net.jcip.annotations.ThreadSafe;
 
-import net.jcip.annotations.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * BetterAttributeStore
@@ -12,6 +14,7 @@ import net.jcip.annotations.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "11.4.1", page = "194")
 @ThreadSafe
 public class BetterAttributeStore {
     @GuardedBy("this") private final Map<String, String>
@@ -28,4 +31,11 @@ public class BetterAttributeStore {
         else
             return Pattern.matches(regexp, location);
     }
+
+    public static void main( String[] args ) {
+        String str = "12345678";
+        System.out.println(str.substring(-2));
+
+    }
+
 }

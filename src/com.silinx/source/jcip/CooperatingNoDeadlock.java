@@ -1,8 +1,10 @@
 package com.silinx.source.jcip;
 
-import java.util.*;
+import net.jcip.annotations.GuardedBy;
+import net.jcip.annotations.ThreadSafe;
 
-import net.jcip.annotations.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * CooperatingNoDeadlock
@@ -11,6 +13,7 @@ import net.jcip.annotations.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "10.1.4", page = "176")
 class CooperatingNoDeadlock {
     @ThreadSafe
     class Taxi {
@@ -25,7 +28,8 @@ class CooperatingNoDeadlock {
             return location;
         }
 
-        public synchronized void setLocation(Point location) {
+        //方法中就不加synchronized关键字
+        public void setLocation( Point location ) {
             boolean reachedDestination;
             synchronized (this) {
                 this.location = location;

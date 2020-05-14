@@ -1,8 +1,9 @@
 package com.silinx.source.jcip;
 
-import java.util.*;
+import net.jcip.annotations.GuardedBy;
 
-import net.jcip.annotations.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * CooperatingDeadlock
@@ -11,6 +12,7 @@ import net.jcip.annotations.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "10.1.3", page = "174")
 public class CooperatingDeadlock {
     // Warning: deadlock-prone!
     class Taxi {

@@ -1,8 +1,9 @@
 package com.silinx.source.jcip;
 
-import java.util.*;
+import net.jcip.annotations.Immutable;
 
-import net.jcip.annotations.*;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * PuzzleNode
@@ -11,6 +12,7 @@ import net.jcip.annotations.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "8.5",page = "151")
 @Immutable
 public class PuzzleNode <P, M> {
     final P pos;
@@ -23,9 +25,11 @@ public class PuzzleNode <P, M> {
         this.prev = prev;
     }
 
+    //返回的是如何移动的轨迹而不是节点的位置变化轨迹
     List<M> asMoveList() {
         List<M> solution = new LinkedList<M>();
         for (PuzzleNode<P, M> n = this; n.move != null; n = n.prev)
+            //最初的开始节点 pre和move应该都是null，因为move是移动采取的规则，而第一个节点根本就没有移动过
             solution.add(0, n.move);
         return solution;
     }

@@ -11,6 +11,7 @@ import java.util.concurrent.atomic.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "7.2.4", page = "129")
 public class CheckForMail {
     public boolean checkMail( Set<String> hosts, long timeout, TimeUnit unit)
             throws InterruptedException {
@@ -25,8 +26,8 @@ public class CheckForMail {
                     }
                 });
         } finally {
-            exec.shutdown();
-            exec.awaitTermination(timeout, unit);
+            exec.shutdown();//不再接受请求
+            exec.awaitTermination(timeout, unit);//阻止所有任务在结束后再次运行
         }
         return hasNewMail.get();
     }
