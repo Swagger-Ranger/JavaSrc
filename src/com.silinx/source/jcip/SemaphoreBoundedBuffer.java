@@ -1,8 +1,9 @@
 package com.silinx.source.jcip;
 
-import java.util.concurrent.*;
+import net.jcip.annotations.GuardedBy;
+import net.jcip.annotations.ThreadSafe;
 
-import net.jcip.annotations.*;
+import java.util.concurrent.Semaphore;
 
 /**
  * BoundedBuffer
@@ -10,7 +11,10 @@ import net.jcip.annotations.*;
  * Bounded buffer using \Semaphore
  *
  * @author Brian Goetz and Tim Peierls
+ *
+ * 使用Semaphore来管理并用数组来存的，有界并发队列
  */
+@JCIPCodeInfo(chapter = "12.1",page = "205")
 @ThreadSafe
 public class SemaphoreBoundedBuffer <E> {
     private final Semaphore availableItems, availableSpaces;

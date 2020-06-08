@@ -10,8 +10,15 @@ import static java.util.concurrent.TimeUnit.NANOSECONDS;
  * <p/>
  * Avoiding lock-ordering deadlock using tryLock
  *
+ * 内置锁与显示锁：
+ * 内置锁缺点-显示锁的优点1.无法中断一个正在等待获取锁的线程，2.无法实现非阻塞性加锁，也就是不能获得锁就不要等
+ * 内置锁的优点-显示锁的缺点：1.内置锁在运行完代码块之后就自动释放锁使得编码更加简化，2.显示锁必须在finally中释放否则在代码块中抛出异常可能导致锁永远无法被释放
+ *
+ * 避免顺序死锁：使用Lock显示锁，获得所有锁后在执行代码，然后获得锁并执行完成之后会依次都释放锁
+ *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "13.1.1",page = "229")
 public class DeadlockAvoidance {
     private static Random rnd = new Random();
 

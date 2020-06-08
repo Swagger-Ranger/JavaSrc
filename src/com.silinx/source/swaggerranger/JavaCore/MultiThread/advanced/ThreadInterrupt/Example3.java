@@ -40,7 +40,8 @@ public class Example3 extends Thread {
 
                 //中不中断由自己决定，如果需要真真中断线程，则需要重新设置中断位，如果
                 //不需要，则不用调用
-                Thread.currentThread().interrupt();
+//                Thread.currentThread().interrupt();
+                System.out.println(Thread.interrupted());// 如果调用静态interrupted()方法则返回当前的线程中断情况并重置中断状态为false，所以这里并不会中断线程
             }
         }
         System.out.println("Thread exiting under request...");

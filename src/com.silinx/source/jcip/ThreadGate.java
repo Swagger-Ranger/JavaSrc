@@ -9,6 +9,7 @@ import net.jcip.annotations.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "14.2.5",page = "249")
 @ThreadSafe
 public class ThreadGate {
     // CONDITION-PREDICATE: opened-since(n) (isOpen || generation>n)

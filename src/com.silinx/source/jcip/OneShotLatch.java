@@ -1,8 +1,8 @@
 package com.silinx.source.jcip;
 
-import java.util.concurrent.locks.*;
+import net.jcip.annotations.ThreadSafe;
 
-import net.jcip.annotations.*;
+import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 
 /**
  * OneShotLatch
@@ -11,6 +11,7 @@ import net.jcip.annotations.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "14.5",page = "256")
 @ThreadSafe
 public class OneShotLatch {
     private final Sync sync = new Sync();

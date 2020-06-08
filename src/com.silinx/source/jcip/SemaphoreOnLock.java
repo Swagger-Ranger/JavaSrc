@@ -13,8 +13,10 @@ import java.util.concurrent.locks.ReentrantLock;
  * Counting semaphore implemented using Lock
  * (Not really how java.util.concurrent.Semaphore is implemented)
  *
+ * 用ReentrantLock重入锁来实现Semaphore（实际上Semaphore不是这样实现的）
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "14.4",page = "253")
 @ThreadSafe
 public class SemaphoreOnLock {
     private final Lock lock = new ReentrantLock();

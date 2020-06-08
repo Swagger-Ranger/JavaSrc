@@ -9,7 +9,7 @@ import net.jcip.annotations.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
-
+@JCIPCodeInfo(chapter = "15.2.1",page = "263")
 @ThreadSafe
 public class SimulatedCAS {
     @GuardedBy("this") private int value;

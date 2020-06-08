@@ -7,6 +7,7 @@ import java.util.concurrent.locks.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "13.1.1",page = "230")
 public class InterruptibleLocking {
     private Lock lock = new ReentrantLock();
 

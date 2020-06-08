@@ -104,7 +104,7 @@ final class WeakCache<K, P, V> {
 
         Object cacheKey = CacheKey.valueOf(key, refQueue);
 
-        // lazily install the 2nd level valuesMap for the particular cacheKey
+        // lazily install the 2nd level valuesMap for the particular cacheKey 这里先判断是否内存中已存在
         ConcurrentMap<Object, Supplier<V>> valuesMap = map.get(cacheKey);
         if (valuesMap == null) {
             ConcurrentMap<Object, Supplier<V>> oldValuesMap
@@ -115,8 +115,8 @@ final class WeakCache<K, P, V> {
             }
         }
 
-        // create subKey and retrieve the possible Supplier<V> stored by that
-        // subKey from valuesMap
+        // create subKey and retrieve the possible Supplier<V> stored by that 如果在内存中没有对于的类，则生成一个
+        // subKey from valuesMap subKeyFactory.apply(key, parameter)是由Proxy来提供的实现ProxyClassFactory
         Object subKey = Objects.requireNonNull(subKeyFactory.apply(key, parameter));
         Supplier<V> supplier = valuesMap.get(subKey);
         Factory factory = null;

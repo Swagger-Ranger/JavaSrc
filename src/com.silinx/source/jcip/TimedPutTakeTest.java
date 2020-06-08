@@ -9,11 +9,16 @@ import java.util.concurrent.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "12.2.1",page = "215")
 public class TimedPutTakeTest extends PutTakeTest {
     private BarrierTimer timer = new BarrierTimer();
 
     public TimedPutTakeTest(int cap, int pairs, int trials) {
         super(cap, pairs, trials);
+        /**
+         * 创建一个新的 CyclicBarrier ，当给定数量的线程（线程）等待时，它将跳闸，
+         * 当屏障跳闸时执行给定的屏障动作，由最后一个进入屏障的线程执行
+         */
         barrier = new CyclicBarrier(nPairs * 2 + 1, timer);
     }
 

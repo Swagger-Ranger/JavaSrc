@@ -9,10 +9,17 @@ import junit.framework.TestCase;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "12.1.4",page = "226")
 public class TestBoundedBuffer extends TestCase {
     private static final long LOCKUP_DETECT_TIMEOUT = 1000;
     private static final int CAPACITY = 10000;
     private static final int THRESHOLD = 10000;
+
+    public static void main( String[] args ) {
+        TestBoundedBuffer testBoundedBuffer = new TestBoundedBuffer();
+
+        testBoundedBuffer.testTakeBlocksWhenEmpty();
+    }
 
     void testIsEmptyWhenConstructed() {
         SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<Integer>(10);

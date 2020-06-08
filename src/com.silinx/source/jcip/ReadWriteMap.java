@@ -7,9 +7,10 @@ import java.util.concurrent.locks.*;
  * ReadWriteMap
  * <p/>
  * Wrapping a Map with a read-write lock
- *
+ * 使用读写锁来包装一个Map
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "13.5",page = "236")
 public class ReadWriteMap <K,V> {
     private final Map<K, V> map;
     private final ReadWriteLock lock = new ReentrantReadWriteLock();

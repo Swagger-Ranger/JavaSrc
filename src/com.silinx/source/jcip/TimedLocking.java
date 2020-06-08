@@ -8,9 +8,10 @@ import static java.util.concurrent.TimeUnit.NANOSECONDS;
  * TimedLocking
  * <p/>
  * Locking with a time budget
- *
+ * 带时间限制的加锁
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "13.1.1",page = "230")
 public class TimedLocking {
     private Lock lock = new ReentrantLock();
 

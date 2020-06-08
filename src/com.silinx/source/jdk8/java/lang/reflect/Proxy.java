@@ -25,6 +25,13 @@
 
 package java.lang.reflect;
 
+import sun.misc.ProxyGenerator;
+import sun.misc.VM;
+import sun.reflect.CallerSensitive;
+import sun.reflect.Reflection;
+import sun.reflect.misc.ReflectUtil;
+import sun.security.util.SecurityConstants;
+
 import java.lang.ref.WeakReference;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
@@ -34,12 +41,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.BiFunction;
-import sun.misc.ProxyGenerator;
-import sun.misc.VM;
-import sun.reflect.CallerSensitive;
-import sun.reflect.Reflection;
-import sun.reflect.misc.ReflectUtil;
-import sun.security.util.SecurityConstants;
 
 /**
  * {@code Proxy} provides static methods for creating dynamic proxy
@@ -634,11 +635,21 @@ public class Proxy implements java.io.Serializable {
             String proxyName = proxyPkg + proxyClassNamePrefix + num;
 
             /*
-             * Generate the specified proxy class.
+             * Generate the specified proxy class. 生成class文件即直接在内存里生成class字节码，.class文件的本质就是字节数码
+             * 这里可以写个工具方法直接把它读出来，因为ProxyGenerator.generateProxyClass是个静态方法：
+             * proxyName：动态代理生成的类名
+             * public static void generateClassFile(Class clazz ,String proxyName){
+             *     byte[] proxyClassFile = ProxyGenerator.generateProxyClass(
+                proxyName, interfaces);
+                *
+                * 将proxyClassFile字节流写入文件即可
+             * }
+             *
              */
             byte[] proxyClassFile = ProxyGenerator.generateProxyClass(
                 proxyName, interfaces, accessFlags);
             try {
+                // 这里根据生成的字节码来加载类
                 return defineClass0(loader, proxyName,
                                     proxyClassFile, 0, proxyClassFile.length);
             } catch (ClassFormatError e) {
@@ -714,7 +725,7 @@ public class Proxy implements java.io.Serializable {
         }
 
         /*
-         * Look up or generate the designated proxy class.
+         * Look up or generate the designated proxy class. 获取class的入口，下面就是在根据获取的class实例化对象
          */
         Class<?> cl = getProxyClass0(loader, intfs);
 
@@ -831,6 +842,7 @@ public class Proxy implements java.io.Serializable {
         return ih;
     }
 
+    // native本地方法，使用C写的，直接调用操作系统的类库或者汇编
     private static native Class<?> defineClass0(ClassLoader loader, String name,
                                                 byte[] b, int off, int len);
 }

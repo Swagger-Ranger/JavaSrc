@@ -1,8 +1,8 @@
 package com.silinx.source.jcip;
 
-import java.util.concurrent.atomic.*;
+import net.jcip.annotations.ThreadSafe;
 
-import net.jcip.annotations.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * AtomicPseudoRandom
@@ -11,6 +11,7 @@ import net.jcip.annotations.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "15.3.2",page = "267")
 @ThreadSafe
 public class AtomicPseudoRandom extends PseudoRandom {
     private AtomicInteger seed;

@@ -7,6 +7,7 @@ package com.silinx.source.jcip;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "12.2.1",page = "215")
 public class BarrierTimer implements Runnable {
     private boolean started;
     private long startTime, endTime;

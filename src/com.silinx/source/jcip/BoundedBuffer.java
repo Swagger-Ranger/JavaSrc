@@ -10,7 +10,7 @@ import net.jcip.annotations.*;
  * @author Brian Goetz and Tim Peierls
  * 一个简单的有界队列
  */
-@JCIPCodeInfo(chapter = "12.1",page = "205")
+@JCIPCodeInfo(chapter = "14.1.3",page = "244")
 @ThreadSafe
 public class BoundedBuffer <V> extends BaseBoundedBuffer<V> {
     // CONDITION PREDICATE: not-full (!isFull())

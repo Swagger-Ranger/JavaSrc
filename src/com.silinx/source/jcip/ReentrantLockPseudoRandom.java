@@ -11,6 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "15.3.2",page = "267")
 @ThreadSafe
 public class ReentrantLockPseudoRandom extends PseudoRandom {
     private final Lock lock = new ReentrantLock(false);

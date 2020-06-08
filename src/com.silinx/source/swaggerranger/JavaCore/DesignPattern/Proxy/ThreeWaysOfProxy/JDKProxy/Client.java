@@ -15,11 +15,11 @@ public class Client {
         System.out.println("source target:" + target);
 
         ProxyFactoryInterface proxy = (ProxyFactoryInterface) new ProxyFactory(target).getProxyInstance();
-//        proxy.method();
+        proxy.method();
         System.out.println("normal Proxy: " + proxy.getClass());
 
         ProxyFactoryInterface proxy2 = (ProxyFactoryInterface) new ProxyFactory(target).getProxyInstanceLambda();
-//        proxy2.method();
+        proxy2.method();
         System.out.println("lambda Proxy: " + proxy2.getClass());
 
     }

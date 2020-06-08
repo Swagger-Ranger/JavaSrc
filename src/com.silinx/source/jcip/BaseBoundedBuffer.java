@@ -9,6 +9,7 @@ import net.jcip.annotations.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "14.1.1",page = "239")
 @ThreadSafe
 public abstract class BaseBoundedBuffer <V> {
     @GuardedBy("this") private final V[] buf;

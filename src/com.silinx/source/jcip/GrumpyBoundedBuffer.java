@@ -6,20 +6,22 @@ import net.jcip.annotations.*;
  * GrumpyBoundedBuffer
  * <p/>
  * Bounded buffer that balks when preconditions are not met
+ * 如果不满足条件，有界队列不会做任何操作，但这不是一个好的实现。不满足条件就直接抛出异常，但实际上不满足条件并没有是问题
  *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "14.1.1", page = "240")
 @ThreadSafe
-        public class GrumpyBoundedBuffer <V> extends BaseBoundedBuffer<V> {
+public class GrumpyBoundedBuffer<V> extends BaseBoundedBuffer<V> {
     public GrumpyBoundedBuffer() {
         this(100);
     }
 
-    public GrumpyBoundedBuffer(int size) {
+    public GrumpyBoundedBuffer( int size ) {
         super(size);
     }
 
-    public synchronized void put(V v) throws BufferFullException {
+    public synchronized void put( V v ) throws BufferFullException {
         if (isFull())
             throw new BufferFullException();
         doPut(v);

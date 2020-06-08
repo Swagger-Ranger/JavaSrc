@@ -1,25 +1,28 @@
 package com.silinx.source.jcip;
 
-import java.util.concurrent.atomic.*;
+import net.jcip.annotations.Immutable;
+import net.jcip.annotations.ThreadSafe;
 
-import net.jcip.annotations.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * CasNumberRange
  * <p/>
  * Preserving multivariable invariants using CAS
- *
+ * 维护多个可变的变量，同时保证其在同时更新多个值是仍然保存正确行
+ *  使用AtomicReference在内部维护一个不可变static  的静态内部类final其属性，然后在后面更新时返回一个新的内部类对象。
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "15.3.1", page = "267")
 @ThreadSafe
-        public class CasNumberRange {
+public class CasNumberRange {
     @Immutable
-            private static class IntPair {
+    private static class IntPair {
         // INVARIANT: lower <= upper
         final int lower;
         final int upper;
 
-        public IntPair(int lower, int upper) {
+        public IntPair( int lower, int upper ) {
             this.lower = lower;
             this.upper = upper;
         }
@@ -36,7 +39,7 @@ import net.jcip.annotations.*;
         return values.get().upper;
     }
 
-    public void setLower(int i) {
+    public void setLower( int i ) {
         while (true) {
             IntPair oldv = values.get();
             if (i > oldv.upper)
@@ -47,7 +50,7 @@ import net.jcip.annotations.*;
         }
     }
 
-    public void setUpper(int i) {
+    public void setUpper( int i ) {
         while (true) {
             IntPair oldv = values.get();
             if (i < oldv.lower)

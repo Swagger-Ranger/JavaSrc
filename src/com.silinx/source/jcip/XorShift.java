@@ -5,8 +5,11 @@ import java.util.concurrent.atomic.*;
 /**
  * XorShift
  *
+ * 一个伪随机数生成器，
+ *
  * @author Brian Goetz and Tim Peierls
  */
+@JCIPCodeInfo(chapter = "12.1.3",page = "209")
 public class XorShift {
     static final AtomicInteger seq = new AtomicInteger(8862213);
     int x = -1831433054;
