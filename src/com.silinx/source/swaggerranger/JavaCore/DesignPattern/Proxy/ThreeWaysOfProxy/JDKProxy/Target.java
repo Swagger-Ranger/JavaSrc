@@ -15,4 +15,9 @@ public class Target implements ProxyFactoryInterface {
     public void method() {
         System.out.println("--- JDK Proxy ---");
     }
+
+    @Override
+    public void method2() {
+        System.out.println("------- method2 --------------");
+    }
 }

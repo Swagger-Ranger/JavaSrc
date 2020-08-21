@@ -20,5 +20,6 @@ public class InvocationHandlerFactoryMain {
         invocationHandlerFactory.setRealHandler(target);
         ProxyFactoryInterface factoryInterface = (ProxyFactoryInterface) invocationHandlerFactory.getHandlerInstance();
         factoryInterface.method();
+        factoryInterface.method2();
     }
 }

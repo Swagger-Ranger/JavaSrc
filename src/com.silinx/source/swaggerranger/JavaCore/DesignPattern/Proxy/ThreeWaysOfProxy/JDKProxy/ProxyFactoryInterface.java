@@ -11,4 +11,6 @@ package com.silinx.source.swaggerranger.JavaCore.DesignPattern.Proxy.ThreeWaysOf
 
 public interface ProxyFactoryInterface {
     void method();
+
+    void method2();
 }
