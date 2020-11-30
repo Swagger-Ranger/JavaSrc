@@ -24,7 +24,7 @@ public class SingletonOfIdler implements Serializable {
     /**
      * 防止通过序列化（即先将对象写入文件，然后再从文件中读出对象，单读出的对象是个新建的对象）破坏单例
      * 如果定义了readResolve()方法则直接返回此方法指定的对象，而不需要单独创建新对象
-     * 这个方法需要和implements Serializable 对应，如果不实现序列化则用不到这个
+     * 这个方法需要和implements com.silinx.source.swaggerranger.JavaCore.Serializable 对应，如果不实现序列化则用不到这个
      */
     private Object readResolve() throws ObjectStreamException { return instance; }
 

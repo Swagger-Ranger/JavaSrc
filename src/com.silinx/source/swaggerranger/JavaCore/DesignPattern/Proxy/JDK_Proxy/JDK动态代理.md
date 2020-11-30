@@ -16,7 +16,7 @@ Object invoke(Object proxy, Method method, Object[] args)
 
 ### Proxy类
 Proxy提供了创建动态代理类和实例的静态方法，它也是由这些方法创建的所有动态代理类的超类。并实现了Serializable序列化接口
-`public class Proxy extends Object implements Serializable`
+`public class Proxy extends Object implements com.silinx.source.swaggerranger.JavaCore.Serializable`
 
 #### Proxy方法
 Proxy类的方法都是静态方法
