@@ -60,11 +60,33 @@ public class IO_FileOutputStream {
         FOS.write(bytes1);
 
 
+        /**
+         * InputStream is = new FileInputStream("a.txt");
+         *
+         * FileOutputStream fos = new FileOutputStream("b.txt");
+         *
+         * byte[] b = new byte[1024];
+         *
+         * int length;
+         *
+         * while(length= is.read(b)>)0){
+         *
+         * fos.write(b,0,length);
+         *
+         * }
+         *
+         * is.close();
+         *
+         * fos.close();
+         */
+
+
         FOS.close();
     }
 
     public static void main( String[] args ) throws IOException {
         IO_FileOutputStream fos = new IO_FileOutputStream();
-        fos.fos("./src/JavaCore/IO/FOS.txt");
+//        fos.fos("./src/JavaCore/IO/FOS.txt");
+        fos.fos("D:\\liufei5");
     }
 }

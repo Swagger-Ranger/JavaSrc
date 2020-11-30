@@ -78,10 +78,5 @@ public class Main {
         linkedHashSet.add(null);
         linkedHashSet.add(null);
         System.out.println(linkedHashSet.size());
-
-
-
-
-
     }
 }
