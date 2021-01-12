@@ -10,7 +10,12 @@
 <!--    </parent>-->
     <groupId>com.silinx</groupId>
     <artifactId>JavaSrc</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>springSrcDemo</module>
+        <module>javaSE</module>
+    </modules>
     <name>JavaSrc</name>
     <description>Java源码学习</description>
 
