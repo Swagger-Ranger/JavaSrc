@@ -15,6 +15,7 @@
     <modules>
         <module>springSrcDemo</module>
         <module>javaSE</module>
+        <module>Tools</module>
     </modules>
     <name>JavaSrc</name>
     <description>Java源码学习</description>
