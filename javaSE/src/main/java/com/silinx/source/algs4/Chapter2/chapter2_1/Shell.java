@@ -30,7 +30,6 @@ package com.silinx.source.algs4.Chapter2.chapter2_1;
  *
  ******************************************************************************/
 
-import com.silinx.source.algs4.algs4_lib.StdIn;
 import com.silinx.source.algs4.algs4_lib.StdOut;
 
 public class Shell {
@@ -105,9 +104,11 @@ public class Shell {
     }
 
     public static void main( String[] args) {
-        String[] a = StdIn.readAllStrings();
-        Shell.sort(a);
-        show(a);
+//        String[] a = StdIn.readAllStrings();
+//        Shell.sort(a);
+//        show(a);
+
+        System.out.println(7 / 2);
     }
 
 }

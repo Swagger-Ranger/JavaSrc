@@ -1,4 +1,4 @@
-package com.silinx.source.algs4.Chapter2.chapter2_1;
+ package com.silinx.source.algs4.Chapter2.chapter2_1;
 
 /******************************************************************************
  *  Compilation:  javac Insertion.java
