@@ -14,14 +14,17 @@ public class BasicThreadPool extends Thread implements ThreadPool
 
     private final int coreSize;
 
+    // 当前活跃的线程数
     private int activeCount;
 
     private final ThreadFactory threadFactory;
 
+    // 任务队列
     private final RunnableQueue runnableQueue;
 
     private volatile boolean isShutdown = false;
 
+    // 线程工作队列
     private final Queue<ThreadTask> threadQueue = new ArrayDeque<>();
 
     private final static DenyPolicy DEFAULT_DENY_POLICY = new DenyPolicy.DiscardDenyPolicy();
@@ -93,6 +96,10 @@ public class BasicThreadPool extends Thread implements ThreadPool
     @Override
     public void run()
     {
+
+        /**
+         * 这里主要在维护线程线程池中的线程和线程数量的生成和销毁，具体的任务执行在InternalTask里面，这里面不断地去取任务队列中的任务来执行
+         */
         while (!isShutdown && !isInterrupted())
         {
             try
@@ -217,6 +224,10 @@ public class BasicThreadPool extends Thread implements ThreadPool
         }
     }
 
+    /**
+     * 线程和InternalTask 的组合，InternalTask实现Runnable，实现中就是不断的取任务队列里的任务来执行；
+     * ThreadTask就是将InternalTask和具体哪个线程来执行的做一个组合
+     */
     private static class ThreadTask
     {
         public ThreadTask(Thread thread, InternalTask internalTask)

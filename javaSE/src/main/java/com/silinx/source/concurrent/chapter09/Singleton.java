@@ -9,11 +9,11 @@ package com.silinx.source.concurrent.chapter09;
 public class Singleton
 {
 
-    private static Singleton instance = new Singleton();
 
     private static int x = 0;
 
     private static int y;
+    private static Singleton instance = new Singleton();
 
 
 

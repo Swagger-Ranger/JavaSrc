@@ -13,5 +13,5 @@ public class Parent
         System.out.println("The parent is initialized");
     }
 
-    public static int y=100;
+    public final static int y=100;
 }

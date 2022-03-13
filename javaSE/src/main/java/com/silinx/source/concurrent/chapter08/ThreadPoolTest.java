@@ -20,19 +20,20 @@ public class ThreadPoolTest
                 }
             });
 
-/*        for (; ; )
-        {
-            System.out.println("getActiveCount:" + threadPool.getActiveCount());
-            System.out.println("getQueueSize:" + threadPool.getQueueSize());
-            System.out.println("getCoreSize:" + threadPool.getCoreSize());
-            System.out.println("getMaxSize:" + threadPool.getMaxSize());
-            System.out.println("======================================");
-            TimeUnit.SECONDS.sleep(5);
-        }*/
+//        for (; ; )
+//        {
+//            System.out.println("getActiveCount:" + threadPool.getActiveCount());
+//            System.out.println("getQueueSize:" + threadPool.getQueueSize());
+//            System.out.println("getCoreSize:" + threadPool.getCoreSize());
+//            System.out.println("getMaxSize:" + threadPool.getMaxSize());
+//            System.out.println("======================================");
+//            TimeUnit.SECONDS.sleep(5);
+//        }
 
         TimeUnit.SECONDS.sleep(12);
         threadPool.shutdown();
 
+        // 使main线程join，方便使用工具观察线程堆栈信息
         Thread.currentThread().join();
     }
 }

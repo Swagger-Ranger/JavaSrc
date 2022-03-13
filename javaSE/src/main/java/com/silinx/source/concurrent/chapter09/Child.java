@@ -13,7 +13,7 @@ public class Child extends Parent
         System.out.println("The child will be initialized");
     }
 
-    public static int x = 10;
+    public final static int x = 10;
 
     public int test(){
      return 0;

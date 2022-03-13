@@ -13,7 +13,9 @@ public class ActiveLoadTest
         /*Simple[] simples = new Simple[10];
         System.out.println(simples.length);*/
 
-        System.out.println(GlobalConstants.MAX);
+//        System.out.println(GlobalConstants.MAX);
+//        System.out.println(GlobalConstants.RANDOM);
+        System.out.println(Child.y);
         System.out.println(GlobalConstants.RANDOM);
     }
 }

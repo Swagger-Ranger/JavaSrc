@@ -1,5 +1,9 @@
 package com.silinx.source.concurrent.chapter08;
 
+
+/**
+ * 这个 InternalTask 就相当于一个worker
+ */
 public class InternalTask implements Runnable
 {
 
@@ -15,6 +19,9 @@ public class InternalTask implements Runnable
     @Override
     public void run()
     {
+        /**
+         * 这个内部工作worker会不断的去取任务队列里面的任务来执行
+         */
         while (running && !Thread.currentThread().isInterrupted())
         {
             try
