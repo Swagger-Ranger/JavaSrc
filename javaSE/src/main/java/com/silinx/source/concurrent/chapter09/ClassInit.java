@@ -17,11 +17,15 @@ public class ClassInit
         {
             System.out.println("The ClassInit static code block will be invoke.");
             TimeUnit.SECONDS.sleep(10);
+            // 静态代码块只能对后面的变量进行赋值，但不能对其进行修改
+            x = 12;
         } catch (InterruptedException e)
         {
             e.printStackTrace();
         }
     }
+
+    private static int x = 10;
 
     public static void main(String[] args)
     {
