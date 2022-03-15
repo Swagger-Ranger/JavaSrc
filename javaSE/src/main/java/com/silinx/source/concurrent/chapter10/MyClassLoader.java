@@ -16,7 +16,7 @@ import java.nio.file.Paths;
 public class MyClassLoader extends ClassLoader
 {
 
-    private final static Path DEFAULT_CLASS_DIR = Paths.get("G:", "classloader1");
+    private final static Path DEFAULT_CLASS_DIR = Paths.get("c:", "");
 
     private final Path classDir;
 

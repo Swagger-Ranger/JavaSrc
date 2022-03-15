@@ -11,6 +11,7 @@ public class ExtClassLoader
     public static void main(String[] args)
             throws ClassNotFoundException
     {
+        System.out.println(System.getProperty("java.ext.dirs"));
         Class<?> helloClass = Class.forName("Hello");
         System.out.println(helloClass.getClassLoader());
     }

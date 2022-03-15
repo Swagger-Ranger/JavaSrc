@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  ***************************************/
 public class ThreadClosale extends Thread
 {
-    private  boolean started = true;
+    private volatile boolean started = true;
 
     @Override
     public void run()

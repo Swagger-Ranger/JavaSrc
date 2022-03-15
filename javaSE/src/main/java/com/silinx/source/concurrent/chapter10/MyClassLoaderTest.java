@@ -1,9 +1,6 @@
 package com.silinx.source.concurrent.chapter10;
 
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
-import static java.lang.Thread.currentThread;
 
 /***************************************
  * @author:Alex Wang
@@ -33,13 +30,13 @@ public class MyClassLoaderTest
         String result = (String) welcomeMethod.invoke(helloWorld);
         System.out.println("Result:" + result);*/
 
-        MyClassLoader classLoader = new MyClassLoader("G:\\classloader1", null);
+        MyClassLoader classLoader = new MyClassLoader("C:\\LiuFei\\git-workspace\\JavaSrc\\javaSE\\src\\main\\java\\", null);
         Class<?> aClass = classLoader.loadClass("com.silinx.source.concurrent.chapter10.HelloWorld");
         System.out.println(aClass);
         System.out.println(aClass.getClassLoader());
 
 
-        MyClassLoader classLoader2 = new MyClassLoader("G:\\classloader1", null);
+        MyClassLoader classLoader2 = new MyClassLoader("C:\\LiuFei\\git-workspace\\JavaSrc\\javaSE\\src\\main\\java\\", null);
         Class<?> bClass = classLoader2.loadClass("com.silinx.source.concurrent.chapter10.HelloWorld");
         System.out.println(bClass);
         System.out.println(bClass.getClassLoader());
