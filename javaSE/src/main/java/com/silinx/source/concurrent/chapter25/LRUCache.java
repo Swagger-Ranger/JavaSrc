@@ -3,6 +3,7 @@ package com.silinx.source.concurrent.chapter25;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class LRUCache<K, V>
 {
@@ -48,6 +49,16 @@ public class LRUCache<K, V>
             keyList.addLast(key);
         }
         return value;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        LRUCache<Integer, Reference> cache = new LRUCache<>(200, k -> new Reference());
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+            cache.get(i);
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("The " + i + " reference is cached");
+
+        }
     }
 
     @Override

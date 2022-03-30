@@ -11,6 +11,7 @@ import java.util.stream.IntStream;
  ***************************************/
 public final class IntegerAccumulator
 {
+    // 防止因为继承而破坏线程安全性,同时类本身也要设计为final来避免因为继承而失去线程安全性
     private final int init;
 
     public IntegerAccumulator(int init)

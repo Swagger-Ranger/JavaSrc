@@ -1,13 +1,9 @@
 package com.silinx.source.concurrent.chapter25;
 
-import java.io.File;
 import java.io.IOException;
 import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;
-import java.lang.ref.WeakReference;
 import java.net.Socket;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 /***************************************
  * @author:Alex Wang

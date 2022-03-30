@@ -52,6 +52,7 @@ public class CountDownLatch extends Latch
                     throw new WaitTimeoutException("The wait time over specify time.");
 
                 this.wait(TimeUnit.NANOSECONDS.toMillis(remainingNanos));
+                // 这里是个很关键的地方：因为每次执行 countDown都会notify，所以必须重新计算持续时间
                 remainingNanos = endNanos - System.nanoTime();
             }
         }
