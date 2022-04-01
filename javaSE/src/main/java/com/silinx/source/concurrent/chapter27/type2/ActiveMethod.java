@@ -1,4 +1,4 @@
-package com.silinx.source.concurrent.chapter27;
+package com.silinx.source.concurrent.chapter27.type2;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

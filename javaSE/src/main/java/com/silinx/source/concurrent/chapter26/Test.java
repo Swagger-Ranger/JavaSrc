@@ -19,6 +19,7 @@ public class Test
     {
         final ProductionChannel channel = new ProductionChannel(5);
         AtomicInteger productionNo = new AtomicInteger();
+        // 模拟了8个线程在不断的往流水线中提交产品，productionNo就是通用的自增id
         IntStream.range(1, 8).forEach(i ->
                 new Thread(() ->
                 {

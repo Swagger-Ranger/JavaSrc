@@ -74,7 +74,7 @@ class SocketCleaningTracker
         }
     }
 
-    private static final class Tracker extends PhantomReference<Object>
+    private static final class Tracker extends PhantomReference<Socket>
     {
         private final Socket socket;
 

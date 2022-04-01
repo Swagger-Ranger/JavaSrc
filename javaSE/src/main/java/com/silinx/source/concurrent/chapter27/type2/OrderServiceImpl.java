@@ -1,4 +1,4 @@
-package com.silinx.source.concurrent.chapter27;
+package com.silinx.source.concurrent.chapter27.type2;
 
 import com.silinx.source.concurrent.chapter19.Future;
 import com.silinx.source.concurrent.chapter19.FutureService;

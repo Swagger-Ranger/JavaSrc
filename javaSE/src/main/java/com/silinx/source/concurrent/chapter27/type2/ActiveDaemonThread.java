@@ -1,4 +1,4 @@
-package com.silinx.source.concurrent.chapter27;
+package com.silinx.source.concurrent.chapter27.type2;
 
 class ActiveDaemonThread extends Thread
 {

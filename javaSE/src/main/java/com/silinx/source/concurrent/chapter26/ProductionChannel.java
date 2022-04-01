@@ -35,6 +35,7 @@ public class ProductionChannel
             }
 
             productionQueue[tail] = production;
+            // 取模，就是数组如果超过了长度则放到开头
             tail = (tail + 1) % productionQueue.length;
             total++;
             this.notifyAll();

@@ -1,4 +1,4 @@
-package com.silinx.source.concurrent.chapter27;
+package com.silinx.source.concurrent.chapter27.type1;
 
 import static java.lang.Thread.currentThread;
 
@@ -13,10 +13,10 @@ public class ActiveOrderServiceTest
     public static void main(String[] args)
             throws InterruptedException
     {
-//        OrderService orderService = OrderServiceFactory
-//                .toActiveObject(new OrderServiceImpl());
-//        orderService.order("hello", 453453);
-//        System.out.println("Return immediately");
+        OrderService orderService = OrderServiceFactory
+                .toActiveObject(new OrderServiceImpl());
+        orderService.order("hello", 453453);
+        System.out.println("Return immediately");
         currentThread().join();
     }
 }

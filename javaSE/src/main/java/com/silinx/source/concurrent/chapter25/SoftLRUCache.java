@@ -4,6 +4,7 @@ import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /***************************************
  * @author:Alex Wang
@@ -57,6 +58,16 @@ public class SoftLRUCache<K, V>
             keyList.addLast(key);
         }
         return value;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        SoftLRUCache<Integer, Reference> cache = new SoftLRUCache<>(200, k -> new Reference());
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+            cache.get(i);
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("The " + i + " reference is cached");
+
+        }
     }
 
     @Override
