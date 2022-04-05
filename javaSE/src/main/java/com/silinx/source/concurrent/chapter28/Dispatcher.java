@@ -45,6 +45,7 @@ public class Dispatcher
         subscribers.stream().filter(subscriber -> !subscriber.isDisable())
                 .filter(subscriber ->
                 {
+                    // 将event分配到正确的订阅者，因为使用反射调用，所以要过校验 aClass.isAssignableFrom(event.getClass())
                     Method subscribeMethod = subscriber.getSubscribeMethod();
                     Class<?> aClass = subscribeMethod.getParameterTypes()[0];
                     return (aClass.isAssignableFrom(event.getClass()));

@@ -1,4 +1,4 @@
-package com.silinx.source.concurrent.chapter28;
+package com.silinx.source.concurrent.chapter28.monitor;
 
 import java.nio.file.Path;
 import java.nio.file.WatchEvent;

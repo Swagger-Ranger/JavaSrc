@@ -1,4 +1,6 @@
-package com.silinx.source.concurrent.chapter28;
+package com.silinx.source.concurrent.chapter28.monitor;
+
+import com.silinx.source.concurrent.chapter28.Subscribe;
 
 /***************************************
  * @author:Alex Wang
