@@ -6,7 +6,7 @@ package com.silinx.source.swaggerranger.mylib;
  * @date: 2022/7/26
  **/
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,7 +52,7 @@ public class BTree {
     /**
      * B树类
      */
-    private static class B_Tree {
+    public static class B_Tree {
 
         private final int m; // B树的阶
         private final int min;// 元素最小值

@@ -22,7 +22,8 @@ public class FutureTaskDemo {
     private void start() {
         new Thread(futureTask).start();
     }
-    public static void main( String[] args ) throws ExecutionException, InterruptedException {
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         FutureTaskDemo demo = new FutureTaskDemo();
         new Thread(() -> {
             try {
