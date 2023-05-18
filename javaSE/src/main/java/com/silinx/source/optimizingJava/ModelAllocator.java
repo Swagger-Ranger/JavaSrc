@@ -15,10 +15,20 @@ public class ModelAllocator implements Runnable {
     private int multiplierForLongLived = 20;
     private int x = 1024;
     private int y = 1024;
+    /**
+     * 分配率
+     */
     private int mbPerSec = 50;
+    /**
+     * 短对象寿命
+     */
     private int shortLivedMs = 100;
+    /**
+     * 模拟线程数量
+     */
     private int nThreads = 8;
-    private Executor exec = Executors.newFixedThreadPool(nThreads);    
+
+    private Executor exec = Executors.newFixedThreadPool(nThreads);
 // end::MODEL_ALLOC[]
 
     public static void main(String[] args) {

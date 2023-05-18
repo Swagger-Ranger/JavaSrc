@@ -1,6 +1,5 @@
 package com.silinx.source.optimizingJava;
 
-import optjava.ch11.DeliverySchedule;
 import java.util.ArrayList;
 import java.util.List;
 
